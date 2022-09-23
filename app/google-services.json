@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "401019800563",
+    "project_id": "marvel-medtech",
+    "storage_bucket": "marvel-medtech.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:401019800563:android:be351b04208036611da086",
+        "android_client_info": {
+          "package_name": "com.example.marvelmedtechinc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "401019800563-rtii78q37r6i1pe6cpsdibgu9l3g7hsv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-3-ldpSu-bym_lIUaeAYCa7SPBqvVcH8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "401019800563-rtii78q37r6i1pe6cpsdibgu9l3g7hsv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

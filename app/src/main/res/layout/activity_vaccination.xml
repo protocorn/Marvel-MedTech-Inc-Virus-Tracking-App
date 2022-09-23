@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".VaccinationActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:height="60dp"
+            android:backgroundTint="#ff626f"
+            android:text="FIND NEARBY VACCINATION CENTERS"
+            android:textColor="#FFFFFF"
+            app:cornerRadius="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/filter_btn" />
+
+        <ImageView
+            android:id="@+id/filter_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="20dp"
+            android:src="@android:drawable/ic_menu_sort_by_size"
+            app:layout_constraintBottom_toBottomOf="@+id/divider3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stepSize="500"
+        android:valueFrom="500"
+        android:valueTo="10000"
+        android:visibility="gone" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="?android:attr/listDivider"
+        android:elevation="5dp"
+        tools:layout_editor_absoluteY="80dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/vacc_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider3"
+        tools:layout_editor_absoluteX="20dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FCFCFC"
+        android:backgroundTintMode="src_atop"
+        android:src="@drawable/arrow" />
+</LinearLayout>

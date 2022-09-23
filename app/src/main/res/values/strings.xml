@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Marvel MedTech Inc</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="TimeSlot">
+        <item>10:00 am - 10:30 am</item>
+        <item>10:30 am - 11:00 am</item>
+        <item>11:00 am - 11:30 am</item>
+        <item>12:00 pm - 12:30 pm</item>
+        <item>12:30 pm - 1:00 pm</item>
+        <item>1:00 pm - 1:30 pm</item>
+        <item>1:30 pm - 2:00 pm</item>
+        <item>2:00 pm - 2:30 pm</item>
+        <item>2:30 pm - 3:00 pm</item>
+        <item>3:00 pm - 3:30 pm</item>
+        <item>3:30 pm - 4:00 pm</item>
+        <item>4:00 pm - 4:30 pm</item>
+        <item>4:30 pm - 5:00 pm</item>
+    </string-array>
+    <string-array name="Vaccine">
+        <item>Azelanalin</item>
+        <item>Camcal</item>
+        <item>Puttion</item>
+        <item>Black Vaccine</item>
+    </string-array>
+    <string name="title_activity_drawer">DrawerActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+</resources>
