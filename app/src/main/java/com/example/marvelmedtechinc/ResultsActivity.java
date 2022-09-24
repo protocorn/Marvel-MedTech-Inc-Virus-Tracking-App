@@ -34,34 +34,34 @@ public class ResultsActivity extends AppCompatActivity {
                 int int_scr= Integer.parseInt(scr);
 
                 if(int_scr>=0 && int_scr<=10){
-                    Glide.with(ResultsActivity.this).load(android.R.drawable.checkbox_on_background).override(60,60).into(binding.is1);
-                    Glide.with(ResultsActivity.this).load(android.R.drawable.checkbox_on_background).override(60,60).into(binding.ds2);
-                    Glide.with(ResultsActivity.this).load(android.R.drawable.checkbox_on_background).override(60,60).into(binding.vt1);
+                    Glide.with(ResultsActivity.this).load(R.drawable.check).into(binding.is1);
+                    Glide.with(ResultsActivity.this).load(R.drawable.check).into(binding.ds2);
+                    Glide.with(ResultsActivity.this).load(R.drawable.check).into(binding.vt1);
                 }
                 else if(int_scr>=11 && int_scr<=30){
-                    Glide.with(ResultsActivity.this).load(android.R.drawable.checkbox_on_background).override(60,60).into(binding.is1);
-                    Glide.with(ResultsActivity.this).load(android.R.drawable.checkbox_on_background).override(60,60).into(binding.ds2);
-                    Glide.with(ResultsActivity.this).load(android.R.drawable.checkbox_on_background).override(60,60).into(binding.vt2);
+                    Glide.with(ResultsActivity.this).load(R.drawable.check).into(binding.is1);
+                    Glide.with(ResultsActivity.this).load(R.drawable.check).into(binding.ds2);
+                    Glide.with(ResultsActivity.this).load(R.drawable.check).into(binding.vt2);
                 }
                 else if(int_scr>=31 && int_scr<=50){
-                    Glide.with(ResultsActivity.this).load(android.R.drawable.checkbox_on_background).override(60,60).into(binding.is2);
-                    Glide.with(ResultsActivity.this).load(android.R.drawable.checkbox_on_background).override(60,60).into(binding.ds3);
-                    Glide.with(ResultsActivity.this).load(android.R.drawable.checkbox_on_background).override(60,60).into(binding.vt2);
+                    Glide.with(ResultsActivity.this).load(R.drawable.check).into(binding.is2);
+                    Glide.with(ResultsActivity.this).load(R.drawable.check).into(binding.ds3);
+                    Glide.with(ResultsActivity.this).load(R.drawable.check).into(binding.vt2);
                 }
                 else if(int_scr>=51 && int_scr<=70){
-                    Glide.with(ResultsActivity.this).load(android.R.drawable.checkbox_on_background).override(60,60).into(binding.is4);
-                    Glide.with(ResultsActivity.this).load(android.R.drawable.checkbox_on_background).override(60,60).into(binding.ds4);
-                    Glide.with(ResultsActivity.this).load(android.R.drawable.checkbox_on_background).override(60,60).into(binding.vt3);
+                    Glide.with(ResultsActivity.this).load(R.drawable.check).override(60,60).into(binding.is4);
+                    Glide.with(ResultsActivity.this).load(R.drawable.check).override(60,60).into(binding.ds4);
+                    Glide.with(ResultsActivity.this).load(R.drawable.check).override(60,60).into(binding.vt3);
                 }
                 else if(int_scr>=71 && int_scr<=100){
-                    Glide.with(ResultsActivity.this).load(android.R.drawable.checkbox_on_background).override(60,60).into(binding.is5);
-                    Glide.with(ResultsActivity.this).load(android.R.drawable.checkbox_on_background).override(60,60).into(binding.ds4);
-                    Glide.with(ResultsActivity.this).load(android.R.drawable.checkbox_on_background).override(60,60).into(binding.vt4);
+                    Glide.with(ResultsActivity.this).load(R.drawable.check).override(60,60).into(binding.is5);
+                    Glide.with(ResultsActivity.this).load(R.drawable.check).override(60,60).into(binding.ds4);
+                    Glide.with(ResultsActivity.this).load(R.drawable.check).override(60,60).into(binding.vt4);
                 }
                 else if(int_scr>100){
-                    Glide.with(ResultsActivity.this).load(android.R.drawable.checkbox_on_background).override(60,60).into(binding.is5);
-                    Glide.with(ResultsActivity.this).load(android.R.drawable.checkbox_on_background).override(60,60).into(binding.ds5);
-                    Glide.with(ResultsActivity.this).load(android.R.drawable.checkbox_on_background).override(60,60).into(binding.vt5);
+                    Glide.with(ResultsActivity.this).load(R.drawable.check).override(60,60).into(binding.is5);
+                    Glide.with(ResultsActivity.this).load(R.drawable.check).override(60,60).into(binding.ds5);
+                    Glide.with(ResultsActivity.this).load(R.drawable.check).override(60,60).into(binding.vt5);
                 }
             }
         });

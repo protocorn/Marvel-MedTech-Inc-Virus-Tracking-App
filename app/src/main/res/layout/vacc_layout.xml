@@ -49,6 +49,7 @@
                 android:layout_marginRight="10dp"
                 android:backgroundTint="#ff626f"
                 android:text="BOOK A SLOT"
+                android:textColor="#FFFFFF"
                 app:cornerRadius="5dp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

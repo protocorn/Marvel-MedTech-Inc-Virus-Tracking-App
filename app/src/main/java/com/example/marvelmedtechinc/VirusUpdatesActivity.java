@@ -2,6 +2,7 @@ package com.example.marvelmedtechinc;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
@@ -13,10 +14,12 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class VirusUpdatesActivity extends AppCompatActivity {
 
@@ -57,6 +60,45 @@ public class VirusUpdatesActivity extends AppCompatActivity {
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(VirusUpdatesActivity.this);
                 binding.dataList.setLayoutManager(linearLayoutManager);
                 binding.dataList.setAdapter(adapter);
+            }
+        });
+
+        binding.searchbar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                search(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                search(newText);
+                return false;
+            }
+
+            private void search(String newText) {
+                Query query = firebaseFirestore.collection("States").orderBy("name").startAt(newText).endAt(newText + "\uf8ff");
+                query.addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                        list.clear();
+                        for(DocumentSnapshot snapshot:value.getDocuments()){
+                            ArrayList<String> arrayList=new ArrayList<>();
+                            String act= ""+snapshot.get("active_cases");
+                            String rec= ""+snapshot.get("recovered");
+                            String dec= ""+snapshot.get("deceased");
+                            arrayList.add(""+snapshot.get("name"));
+                            arrayList.add(act);
+                            arrayList.add(rec);
+                            arrayList.add(dec);
+                            list.add(arrayList);
+                            adapter = new VirusUpdatesAdapter(list, VirusUpdatesActivity.this);
+                            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(VirusUpdatesActivity.this);
+                            binding.dataList.setLayoutManager(linearLayoutManager);
+                            binding.dataList.setAdapter(adapter);
+                        }
+                    }
+                });
             }
         });
 

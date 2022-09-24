@@ -47,7 +47,13 @@
         android:stepSize="500"
         android:valueFrom="500"
         android:valueTo="10000"
-        android:visibility="gone" />
+        android:visibility="visible"
+        app:haloColor="#efefef"
+        app:thumbColor="#ff626f"
+        app:tickColorActive="#ff626f"
+        app:tickColorInactive="#8F8F8F"
+        app:trackColorActive="#ff626f"
+        app:trackColorInactive="#efefef" />
 
     <View
         android:id="@+id/divider3"

@@ -22,7 +22,7 @@
                 android:layout_marginStart="100dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="Necessity Level --->"
+                android:text="Necessity Level ----->"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.628"
                 app:layout_constraintStart_toStartOf="parent"
@@ -325,38 +325,38 @@
 
                     <ImageView
                         android:id="@+id/is_1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/checkbox_off_background" />
+                        android:src="@drawable/unchecked" />
 
                     <ImageView
                         android:id="@+id/is2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/checkbox_off_background" />
+                        android:src="@drawable/unchecked" />
 
                     <ImageView
                         android:id="@+id/is3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/checkbox_off_background" />
+                        android:src="@drawable/unchecked"  />
 
                     <ImageView
                         android:id="@+id/is4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/checkbox_off_background" />
+                        android:src="@drawable/unchecked" />
 
                     <ImageView
                         android:id="@+id/is5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/checkbox_off_background" />
+                        android:src="@drawable/unchecked"  />
                 </TableRow>
 
                 <TableRow
@@ -374,38 +374,38 @@
 
                     <ImageView
                         android:id="@+id/ds1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/checkbox_off_background" />
+                        android:src="@drawable/unchecked"  />
 
                     <ImageView
                         android:id="@+id/ds2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/checkbox_off_background" />
+                        android:src="@drawable/unchecked"  />
 
                     <ImageView
                         android:id="@+id/ds3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/checkbox_off_background" />
+                        android:src="@drawable/unchecked"  />
 
                     <ImageView
                         android:id="@+id/ds4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/checkbox_off_background" />
+                        android:src="@drawable/unchecked" />
 
                     <ImageView
                         android:id="@+id/ds5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/checkbox_off_background" />
+                        android:src="@drawable/unchecked"  />
                 </TableRow>
 
                 <TableRow
@@ -425,31 +425,31 @@
 
                     <ImageView
                         android:id="@+id/vt1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/checkbox_off_background" />
+                        android:src="@drawable/unchecked" />
 
                     <ImageView
                         android:id="@+id/vt2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/checkbox_off_background" />
+                        android:src="@drawable/unchecked" />
 
                     <ImageView
                         android:id="@+id/vt3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/checkbox_off_background" />
+                        android:src="@drawable/unchecked"  />
 
                     <ImageView
                         android:id="@+id/vt4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/checkbox_off_background" />
+                        android:src="@drawable/unchecked"  />
 
                     <ImageView
                         android:id="@+id/vt5"

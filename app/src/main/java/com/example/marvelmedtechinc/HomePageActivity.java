@@ -60,6 +60,8 @@ public class HomePageActivity extends AppCompatActivity implements LocationListe
     int c = 0;
     int d = 0;
 
+    int n=0;
+
     double lt1, ln1;
     private static final int REQUEST_LOCATION = 1;
     private AppBarConfiguration mAppBarConfiguration;
@@ -158,50 +160,54 @@ public class HomePageActivity extends AppCompatActivity implements LocationListe
                         }
                     }
                 });
-                firebaseFirestore.collection("Users").addSnapshotListener(new EventListener<QuerySnapshot>() {
-                    @Override
-                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                        for(DocumentSnapshot snapshot:value.getDocuments()){
-                            if(snapshot.get("uid")!=auth.getCurrentUser().getUid()){
-                                firebaseFirestore.collection("Users").document(""+snapshot.get("uid")).addSnapshotListener(new EventListener<DocumentSnapshot>() {
-                                    @Override
-                                    public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                                        if(value.get("virus-test").equals("positive")){
-                                            firebaseFirestore.collection("Users").document(""+snapshot.get("uid")).collection("Location").document("Location").addSnapshotListener(new EventListener<DocumentSnapshot>() {
-                                                @Override
-                                                public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                                                    double lt1 = Double.parseDouble("" + value.get("Latitude"));
-                                                    double ln1 = Double.parseDouble("" + value.get("Longitude"));
+                if(n==0) {
+                    firebaseFirestore.collection("Users").addSnapshotListener(new EventListener<QuerySnapshot>() {
+                        @Override
+                        public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                            for (DocumentSnapshot snapshot : value.getDocuments()) {
+                                if (snapshot.get("uid") != auth.getCurrentUser().getUid()) {
+                                    firebaseFirestore.collection("Users").document("" + snapshot.get("uid")).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                                        @Override
+                                        public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                                            if (value.get("virus-test").equals("positive")) {
+                                                firebaseFirestore.collection("Users").document("" + snapshot.get("uid")).collection("Location").document("Location").addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                                                    @Override
+                                                    public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                                                        if (!auth.getCurrentUser().getUid().equals("" + snapshot.get("uid"))) {
+                                                            double lt1 = Double.parseDouble("" + value.get("Latitude"));
+                                                            double ln1 = Double.parseDouble("" + value.get("Longitude"));
 
-                                                    Geofence geofence = geofenceHelper2.geofence("" + snapshot.get("uid"), new LatLng(lt1, ln1),100, Geofence.GEOFENCE_TRANSITION_ENTER | Geofence.GEOFENCE_TRANSITION_DWELL | Geofence.GEOFENCE_TRANSITION_EXIT);
-                                                    GeofencingRequest geofencingRequest = geofenceHelper2.geofencingRequest(geofence);
-                                                    PendingIntent pendingIntent = geofenceHelper2.getPendingIntent();
+                                                            Geofence geofence = geofenceHelper2.geofence("" + snapshot.get("uid"), new LatLng(lt1, ln1), 100, Geofence.GEOFENCE_TRANSITION_ENTER | Geofence.GEOFENCE_TRANSITION_DWELL | Geofence.GEOFENCE_TRANSITION_EXIT);
+                                                            GeofencingRequest geofencingRequest = geofenceHelper2.geofencingRequest(geofence);
+                                                            PendingIntent pendingIntent = geofenceHelper2.getPendingIntent();
 
-                                                    if (ActivityCompat.checkSelfPermission(HomePageActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                                                        // TODO: Consider calling
-                                                        //    ActivityCompat#requestPermissions
-                                                        // here to request the missing permissions, and then overriding
-                                                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                                                        //                                          int[] grantResults)
-                                                        // to handle the case where the user grants the permission. See the documentation
-                                                        // for ActivityCompat#requestPermissions for more details.
-                                                        return;
-                                                    }
-                                                    geofencingClient.addGeofences(geofencingRequest, pendingIntent).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                        @Override
-                                                        public void onSuccess(Void unused) {
-
+                                                            if (ActivityCompat.checkSelfPermission(HomePageActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                                                                // TODO: Consider calling
+                                                                //    ActivityCompat#requestPermissions
+                                                                // here to request the missing permissions, and then overriding
+                                                                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                                                                //                                          int[] grantResults)
+                                                                // to handle the case where the user grants the permission. See the documentation
+                                                                // for ActivityCompat#requestPermissions for more details.
+                                                                return;
+                                                            }
+                                                            geofencingClient.addGeofences(geofencingRequest, pendingIntent).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                @Override
+                                                                public void onSuccess(Void unused) {
+                                                                    n=1;
+                                                                }
+                                                            });
                                                         }
-                                                    });
-                                                }
-                                            });
+                                                    }
+                                                });
+                                            }
                                         }
-                                    }
-                                });
+                                    });
+                                }
                             }
                         }
-                    }
-                });
+                    });
+                }
             } else {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_BACKGROUND_LOCATION}, 120);
             }
@@ -243,7 +249,7 @@ public class HomePageActivity extends AppCompatActivity implements LocationListe
         binding.a500m.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                binding.a500m.setBackgroundColor(Color.rgb(0, 0, 0));
+                binding.a500m.setBackgroundResource(R.drawable.grey_back);
                 binding.a500m.setAlpha(1);
                 binding.a500m.setTextColor(Color.rgb(255, 255, 255));
                 binding.a1km.setAlpha((float) 0.7);
@@ -264,7 +270,7 @@ public class HomePageActivity extends AppCompatActivity implements LocationListe
         binding.a1km.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                binding.a1km.setBackgroundColor(Color.rgb(0, 0, 0));
+                binding.a1km.setBackgroundResource(R.drawable.grey_back);
                 binding.a1km.setAlpha(1);
                 binding.a1km.setTextColor(Color.rgb(255, 255, 255));
                 binding.a500m.setAlpha((float) 0.7);
@@ -286,7 +292,7 @@ public class HomePageActivity extends AppCompatActivity implements LocationListe
         binding.a5km.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                binding.a5km.setBackgroundColor(Color.rgb(0, 0, 0));
+                binding.a5km.setBackgroundResource(R.drawable.grey_back);
                 binding.a5km.setAlpha(1);
                 binding.a5km.setTextColor(Color.rgb(255, 255, 255));
                 binding.a1km.setAlpha((float) 0.7);
@@ -306,7 +312,7 @@ public class HomePageActivity extends AppCompatActivity implements LocationListe
         binding.a10km.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                binding.a10km.setBackgroundColor(Color.rgb(0, 0, 0));
+                binding.a10km.setBackgroundResource(R.drawable.grey_back);
                 binding.a10km.setAlpha(1);
                 binding.a10km.setTextColor(Color.rgb(255, 255, 255));
                 binding.a1km.setAlpha((float) 0.7);
