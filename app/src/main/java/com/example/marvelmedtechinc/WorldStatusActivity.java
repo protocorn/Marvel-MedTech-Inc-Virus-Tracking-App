@@ -3,15 +3,18 @@ package com.example.marvelmedtechinc;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 
-import com.example.marvelmedtechinc.databinding.ActivityWorldStatusBinding;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMapOptions;
@@ -117,9 +120,30 @@ public class WorldStatusActivity extends FragmentActivity implements OnMapReadyC
                 for (DocumentSnapshot snapshot : value.getDocuments()) {
                     double lt1 = Double.parseDouble("" + snapshot.get("Latitude"));
                     double ln1 = Double.parseDouble("" + snapshot.get("Longitude"));
-                    mGoogleMap.addMarker(new MarkerOptions().position(new LatLng(lt1, ln1)).title("" + snapshot.get("name")));
+                    mGoogleMap.addMarker(new MarkerOptions().position(new LatLng(lt1, ln1)).title("" + snapshot.get("name")).icon(BitmapFromVector(getApplicationContext(), R.drawable.hospital)));
                 }
             }
         });
+    }
+
+    private BitmapDescriptor BitmapFromVector(Context applicationContext, int call) {
+        Drawable vectorDrawable = ContextCompat.getDrawable(applicationContext,call);
+
+        // below line is use to set bounds to our vector drawable.
+        vectorDrawable.setBounds(0, 0, vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight());
+
+        // below line is use to create a bitmap for our
+        // drawable which we have added.
+        Bitmap bitmap = Bitmap.createBitmap(vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+
+        // below line is use to add bitmap in our canvas.
+        Canvas canvas = new Canvas(bitmap);
+
+        // below line is use to draw our
+        // vector drawable in canvas.
+        vectorDrawable.draw(canvas);
+
+        // after generating our bitmap we are returning our bitmap.
+        return BitmapDescriptorFactory.fromBitmap(bitmap);
     }
 }

@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.Selection;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseFirestore firebaseFirestore;
     String mVerificationId, otp;
     FirebaseUser user;
+    String mobileno;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                     binding.phoneView.setVisibility(View.GONE);
                     binding.otpView.setVisibility(View.VISIBLE);
                     binding.sendBtn.setText("VALIDATE");
-                    String mobileno = binding.countCode.getFullNumberWithPlus().replace(" ", "");
+                    mobileno = binding.countCode.getFullNumberWithPlus().replace(" ", "");
                     Toast.makeText(MainActivity.this, "" + mobileno, Toast.LENGTH_SHORT).show();
 
                     initiateOtp(mobileno);
@@ -72,6 +74,96 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Invalid OTP", Toast.LENGTH_SHORT).show();
                         return;
                     }
+                    binding.no1.addTextChangedListener(new TextWatcher() {
+                        @Override
+                        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                        }
+
+                        @Override
+                        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                            if(!charSequence.toString().trim().isEmpty()){
+                                binding.no2.requestFocus();
+                            }
+                        }
+
+                        @Override
+                        public void afterTextChanged(Editable editable) {
+
+                        }
+                    });
+                    binding.no2.addTextChangedListener(new TextWatcher() {
+                        @Override
+                        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                        }
+
+                        @Override
+                        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                            if(!charSequence.toString().trim().isEmpty()){
+                                binding.no3.requestFocus();
+                            }
+                        }
+
+                        @Override
+                        public void afterTextChanged(Editable editable) {
+
+                        }
+                    });
+                    binding.no3.addTextChangedListener(new TextWatcher() {
+                        @Override
+                        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                        }
+
+                        @Override
+                        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                            if(!charSequence.toString().trim().isEmpty()){
+                                binding.no4.requestFocus();
+                            }
+                        }
+
+                        @Override
+                        public void afterTextChanged(Editable editable) {
+
+                        }
+                    });
+                    binding.no4.addTextChangedListener(new TextWatcher() {
+                        @Override
+                        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                        }
+
+                        @Override
+                        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                            if(!charSequence.toString().trim().isEmpty()){
+                                binding.no5.requestFocus();
+                            }
+                        }
+
+                        @Override
+                        public void afterTextChanged(Editable editable) {
+
+                        }
+                    });
+                    binding.no5.addTextChangedListener(new TextWatcher() {
+                        @Override
+                        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                        }
+
+                        @Override
+                        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                            if(!charSequence.toString().trim().isEmpty()){
+                                binding.no6.requestFocus();
+                            }
+                        }
+
+                        @Override
+                        public void afterTextChanged(Editable editable) {
+
+                        }
+                    });
                     otp = binding.no1.getText().toString() +
                             binding.no2.getText().toString() +
                             binding.no3.getText().toString() +
@@ -143,13 +235,16 @@ public class MainActivity extends AppCompatActivity {
                                             else{
                                                 startActivity(new Intent(MainActivity.this, HomeAddressActivity.class));
                                             }
+                                            finish();
                                         }
                                     });
                                 } else {
                                     startActivity(new Intent(MainActivity.this, DoctorActivity.class));
+                                    finish();
                                 }
                             } else {
                                 hashMap.put("is_doctor", "false");
+                                hashMap.put("mob_no",mobileno);
                                 firebaseFirestore.collection("Users").document(user.getUid()).set(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.marvelmedtechinc.Adapter.DoctorAdapter;
 import com.example.marvelmedtechinc.Adapter.VaccinationAdapter;
@@ -53,6 +54,9 @@ public class ConsultDoctorActivity extends AppCompatActivity {
                                 if(value.get("status").equals("online")){
                                     list.add(""+value.get("name"));
                                     adapter.notifyDataSetChanged();
+                                }
+                                else{
+                                    Toast.makeText(ConsultDoctorActivity.this, "no doctors found", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

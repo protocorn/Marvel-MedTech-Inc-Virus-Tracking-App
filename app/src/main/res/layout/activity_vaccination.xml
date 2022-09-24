@@ -47,7 +47,7 @@
         android:stepSize="500"
         android:valueFrom="500"
         android:valueTo="10000"
-        android:visibility="visible"
+        android:visibility="gone"
         app:haloColor="#efefef"
         app:thumbColor="#ff626f"
         app:tickColorActive="#ff626f"
@@ -80,6 +80,7 @@
         android:id="@+id/imageView9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight="25dp"
         android:backgroundTint="#FCFCFC"
         android:backgroundTintMode="src_atop"
         android:src="@drawable/arrow" />

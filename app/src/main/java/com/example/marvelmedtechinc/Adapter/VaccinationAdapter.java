@@ -72,7 +72,9 @@ public class VaccinationAdapter extends RecyclerView.Adapter<VaccinationAdapter.
         holder.sub_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.startActivity(new Intent(context, BookingActivity.class));
+                Intent intent=new Intent(context, BookingActivity.class);
+                intent.putExtra("vacc_c",list.get(position));
+                context.startActivity(intent);
             }
         });
 

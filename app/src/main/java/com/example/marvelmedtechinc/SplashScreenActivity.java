@@ -43,9 +43,6 @@ public class SplashScreenActivity extends AppCompatActivity {
                                 if(value.get("home_lat")!=null) {
                                     startActivity(new Intent(SplashScreenActivity.this, HomePageActivity.class));
                                 }
-                                else{
-                                    startActivity(new Intent(SplashScreenActivity.this, HomeAddressActivity.class));
-                                }
                             } else {
                                 startActivity(new Intent(SplashScreenActivity.this, DoctorActivity.class));
                             }
@@ -55,6 +52,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 }
                 else{
                     startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
+                    finish();
                 }
             }
         }.start();

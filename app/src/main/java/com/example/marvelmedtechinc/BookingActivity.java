@@ -41,6 +41,7 @@ public class BookingActivity extends AppCompatActivity {
     private int year;
     FirebaseAuth auth;
     FirebaseFirestore firebaseFirestore;
+    String vacc_c;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,10 @@ public class BookingActivity extends AppCompatActivity {
 
         firebaseFirestore=FirebaseFirestore.getInstance();
         auth=FirebaseAuth.getInstance();
+
+        vacc_c= getIntent().getStringExtra("vacc_c");
+
+        binding.vacCName.setText(vacc_c);
 
         ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this, R.array.TimeSlot, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -114,6 +119,7 @@ public class BookingActivity extends AppCompatActivity {
                     hashMap.put("Date", binding.dateApp.getText().toString());
                     hashMap.put("Time", binding.timeSlot.getSelectedItem().toString());
                     hashMap.put("Vacc_Type",binding.vaccType.getSelectedItem().toString());
+                    hashMap.put("Vacc_Centre",vacc_c);
                     firebaseFirestore.collection("Users").document(auth.getCurrentUser().getUid()).collection("Appointment").document(binding.nameP.getText().toString()).set(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
