@@ -27,8 +27,12 @@ The *database* stores :
 The app uses **Geofencing API** to detect whenever the user enters any confinement zone or any virus positive person is nearby. The app has the location access in the background
 so that whenever user enters a **Geofence** it will get an alert notification.
 
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/53559317/192082127-07d66e17-7a86-4a87-9947-7b95b62e6ed0.png">
+
 **3.Maps API**
 
 The *Maps API* is used to show entire world map with markers of vaccination centers, confinemnet zones and virus positive person. It is also used for marking the home location of the user.
+
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/53559317/192082219-5bbc7ef8-aa78-4463-b497-c5b439da538c.png">
 
 
